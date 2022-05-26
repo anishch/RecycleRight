@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="8dp">
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottom_navigation_3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="625dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:menu="@menu/bottom_navigation_menu"
+        tools:layout_editor_absoluteX="8dp" />
+
+    <ScrollView
+        android:id="@+id/ScrollView01"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        tools:ignore="MissingConstraints">
+
+        <RelativeLayout
+            android:id="@+id/RelativeLayout01"
+            android:layout_width="fill_parent"
+            android:layout_height="638dp" >
+
+            <ImageView
+                android:id="@+id/imageView1"
+                android:layout_width="match_parent"
+                android:layout_height="339dp"
+                android:layout_marginTop="-25dp"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/guidepage1"
+                tools:layout_editor_absoluteX="35dp" />
+
+            <ImageView
+                android:id="@+id/imageView2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/imageView1"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginStart="-1dp"
+                android:layout_marginLeft="-1dp"
+                android:layout_marginTop="255dp"
+                app:srcCompat="@drawable/guidepage2" />
+
+            <ImageView
+                android:id="@+id/imageView3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/imageView2"
+                android:layout_marginTop="-118dp"
+                app:srcCompat="@drawable/guidepage3" />
+
+            <ImageView
+                android:id="@+id/imageView4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/imageView3"
+                android:layout_alignRight="@+id/imageView3"
+                android:layout_marginTop="-201dp"
+                app:srcCompat="@drawable/guidepage4" />
+
+            <ImageView
+                android:id="@+id/imageView5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBaseline="@+id/imageView4"
+                android:layout_alignBottom="@+id/imageView4"
+                android:layout_alignParentRight="true"
+                android:layout_toRightOf="@+id/imageView4"
+                app:srcCompat="@drawable/guidepage5"
+                >
+
+                <requestFocus />
+            </ImageView>
+
+            <ImageView
+                android:id="@+id/imageView6"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBaseline="@+id/imageView5"
+                android:layout_alignBottom="@+id/imageView5"
+                android:layout_alignLeft="@+id/imageView5"
+                android:layout_alignParentRight="true"
+                app:srcCompat="@drawable/guidepage6"
+                />
+
+            <ImageView
+                android:id="@+id/imageView7"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBaseline="@+id/imageView6"
+                android:layout_alignBottom="@+id/imageView6"
+                android:layout_alignLeft="@+id/imageView6"
+                android:layout_alignParentRight="true"
+                app:srcCompat="@drawable/guidepage7"
+                />
+
+            <ImageView
+                android:id="@+id/imageView8"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/imageView7"
+                android:layout_alignParentLeft="true"
+                android:layout_marginLeft="-3dp"
+                android:layout_marginTop="-177dp"
+                app:srcCompat="@drawable/guidepage8" />
+
+            <ImageView
+                android:id="@+id/imageView9"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/imageView8"
+                android:layout_alignParentRight="true"
+                android:layout_marginTop="-100dp"
+                android:layout_marginRight="0dp"
+                app:srcCompat="@drawable/guidepage9" />
+
+        </RelativeLayout>
+    </ScrollView>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
