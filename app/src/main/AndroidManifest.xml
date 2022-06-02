@@ -11,7 +11,8 @@
         android:theme="@style/Theme.SeniorProjectMaybe">
         <activity android:name=".DisplayGuideActivity" />
         <activity android:name=".InstructionActivity" />
-        <activity android:name=".MainActivity">
+        <activity android:name=".CameraActivity" />
+        <activity android:name=".MainActivity" android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

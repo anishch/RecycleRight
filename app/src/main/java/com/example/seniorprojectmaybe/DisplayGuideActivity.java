@@ -31,7 +31,8 @@ public class DisplayGuideActivity extends AppCompatActivity {
         System.out.println("we're here");
         switch (item.getItemId()) {
             case R.id.page_2:
-                Toast.makeText(this, "camera", Toast.LENGTH_LONG);
+                startActivity(new Intent(this, CameraActivity.class));
+                //Toast.makeText(this, "camera", Toast.LENGTH_LONG);
                 //startActivity(new Intent(this, About.class));
                 return true;
 

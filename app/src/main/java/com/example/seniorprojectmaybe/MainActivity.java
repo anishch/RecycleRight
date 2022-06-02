@@ -35,11 +35,13 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
     SearchView searchView;
     FloatingActionButton fab;
     RecyclerAdapter adapter;
+    RecycleList rList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         System.out.println("hello habibi");
         super.onCreate(savedInstanceState);
+        rList = new RecycleList();
         setContentView(R.layout.activity_main);
         fab = findViewById(R.id.fab);
         fab.setOnClickListener(this::sendMessage);
@@ -55,15 +57,15 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
 
     private void setObjectInfo(){
         arrayList.add(new RecycleObject("bottle", "recyclable", false));
-        arrayList.add(new RecycleObject("raw fish", "yakult", true));
-        arrayList.add(new RecycleObject("raw fish", "yakult"));
-        arrayList.add(new RecycleObject("raw fish", "yakult"));
-        arrayList.add(new RecycleObject("raw fish", "yakult"));
-        arrayList.add(new RecycleObject("raw fish", "yakult"));
-        arrayList.add(new RecycleObject("raw fish", "yakult"));
-        arrayList.add(new RecycleObject("raw fish", "yakult"));
-        arrayList.add(new RecycleObject("raw fish", "yakult"));
-        arrayList.add(new RecycleObject("raw fish", "yakult"));
+        arrayList.add(new RecycleObject("raw celery ", "yakult", true));
+        arrayList.add(new RecycleObject("raw celery", "yakult"));
+        arrayList.add(new RecycleObject("raw celery", "yakult"));
+        arrayList.add(new RecycleObject("raw celery", "yakult"));
+        arrayList.add(new RecycleObject("raw celery", "yakult"));
+        arrayList.add(new RecycleObject("raw celery", "yakult"));
+        arrayList.add(new RecycleObject("raw celery", "yakult"));
+        arrayList.add(new RecycleObject("raw celery", "yakult"));
+        arrayList.add(new RecycleObject("raw celery", "yakult"));
         System.out.println("setObjectInfo(): " + arrayList);
     }
 
@@ -86,6 +88,7 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
         System.out.println("we're here");
         switch (item.getItemId()) {
             case R.id.page_2:
+                startActivity(new Intent(this, CameraActivity.class));
                 Toast.makeText(this, "camera", Toast.LENGTH_LONG);
                 //startActivity(new Intent(this, About.class));
                 return true;

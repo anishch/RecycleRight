@@ -39,6 +39,7 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.MyView
             bin = v.findViewById(R.id.object_bin);
             isSelected = v.findViewById(R.id.check_box);
             objectPicture = v.findViewById(R.id.object_image);
+            isSelected.setOnCheckedChangeListener(CompoundButton::setChecked);
             //isSelected.setOnCheckedChangeListener(this::updateObject);
         }
 
@@ -64,6 +65,7 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.MyView
     public void onBindViewHolder(@NonNull RecyclerAdapter.MyViewHolder holder, int position) {
         String name = objectNamesList.get(position).getName();
         String recyclableOrNot = objectNamesList.get(position).getCategory();
+        //objectList.get(position).setSelected(holder.isSelected.isSelected());
         boolean isChecked = objectNamesList.get(position).isSelected();
         holder.name.setText(name);
         holder.bin.setText(recyclableOrNot);
