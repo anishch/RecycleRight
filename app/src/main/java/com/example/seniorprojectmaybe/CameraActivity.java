@@ -16,6 +16,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -28,18 +29,31 @@ import org.tensorflow.lite.support.label.Category;
 
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class CameraActivity extends AppCompatActivity {
 
     BottomNavigationView bottomNav;
+    Spinner spinnerLanguages;
     Button btLoadImage;
     TextView tvResult,textView2, textView3;
     ImageView ivAddImage;
     ActivityResultLauncher<String> mgetContent;
+    int whichModeltoUse = 0;
+    String[] modelNames = new String[]{"Model One", "Model Two", "Model Three", "Model Four", "Model Five", "Model Six", "Model Seven", "Model 8"};
+    ArrayList<String> modelsNames = new ArrayList<String>(Arrays.asList(modelNames));
+    String[] labelNames = new String[]{"Glass Bottles + Jars", "Metal Cans + Scrap Metals", "Paper + Cardboard", "Plastic Bag + Film + Styrofoam", "Plastic Bottles", "Plastic Jugs", "Plastic Tubs + Cups", "Utensils + Small Items", "Wrappers + Food Packaging"};
+    ArrayList<String> labelsNames = new ArrayList<String>(Arrays.asList(labelNames));
+    String[] labelCategories = new String[]{"Recyclable", "Recyclable", "Recyclable", "Garbage", "Recyclable", "Recyclable", "Recyclable", "Garbage", "Garbage"};
+    int[] modelRight = new int[modelNames.length];
+    int[] modelGuesses = new int[modelNames.length];
+    double[] modelAccuracies = new double[modelNames.length];
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        spinnerLanguages = findViewById(R.id.spinner_languages);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_camera);
         bottomNav = findViewById(R.id.bottom_navigation_3);
@@ -114,8 +128,8 @@ public class CameraActivity extends AppCompatActivity {
             //tvResult.setText(output.getLabel());
             System.out.println(output.getLabel());
             textView2.setVisibility(View.VISIBLE);
-            textView2.setText(output.getLabel());
-            textView3.setText(output.getLabel() + " " + output.getScore());
+            textView2.setText(output.getLabel() + ": " + labelCategories[labelsNames.indexOf(output.getLabel())]);
+            textView3.setText(output.getLabel() + ": " + labelCategories[labelsNames.indexOf(output.getLabel())]);
             // Releases model resources if no longer used.
             model.close();
         }catch (IOException e) {

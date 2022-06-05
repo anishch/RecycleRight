@@ -57,7 +57,7 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
 
     private void setObjectInfo(){
         arrayList.add(new RecycleObject("Aluminum Foil", "Garbage"));
-        arrayList.add(new RecycleObject("Amazon Packaging", "Recyclable", true));
+        arrayList.add(new RecycleObject("Amazon Packaging", "Recyclable"));
         arrayList.add(new RecycleObject("Bag of Chips", "Garbage"));
         arrayList.add(new RecycleObject("Batteries", "Hazardous Waste"));
         arrayList.add(new RecycleObject("Broken Glass", "Garbage"));

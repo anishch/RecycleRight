@@ -62,7 +62,7 @@
         android:layout_height="50dp"
         android:layout_marginBottom="28dp"
         android:background="#E91E63"
-        android:text="MARK AS INCOMPLETE"
+        android:text="MARK AS INCORRECT"
         app:layout_constraintBottom_toTopOf="@+id/bottom_navigation_3"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
@@ -89,6 +89,17 @@
         android:text="Model Accuracy: N/A"
         app:layout_constraintBottom_toBottomOf="@+id/iv_add_image"
         app:layout_constraintStart_toStartOf="@+id/iv_add_image" />
+
+    <Spinner
+        android:id="@+id/spinner_languages"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="524dp"
+        android:spinnerMode="dropdown"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.853"
+        app:layout_constraintStart_toStartOf="parent" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
