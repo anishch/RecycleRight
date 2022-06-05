@@ -4,7 +4,6 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.text.Html;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Button;
@@ -14,7 +13,7 @@ import android.widget.Toast;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationBarMenuView;
 
-public class InstructionActivity extends AppCompatActivity {
+public class QuizActivity extends AppCompatActivity {
 
     TextView textView;
 
@@ -23,8 +22,7 @@ public class InstructionActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main2);
         textView = findViewById(R.id.compileTextView);
-        textView.setText((getIntent().getStringExtra(MainActivity.EXTRA_MESSAGE)));
-        //textView.setText(Html.fromHtml(getIntent().getStringExtra(MainActivity.EXTRA_MESSAGE)));
+        textView.setText(getIntent().getStringExtra(MainActivity.EXTRA_MESSAGE));
         //super.onOptionsItemSelected(bottomNav.getMenu().findItem(R.id.page_3));
     }
 

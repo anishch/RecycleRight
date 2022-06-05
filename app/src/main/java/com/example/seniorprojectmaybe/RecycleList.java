@@ -8,7 +8,7 @@ public class RecycleList {
 
     public RecycleList(){
         arrayList.add(new RecycleObject("bottle", "recyclable", false));
-        arrayList.add(new RecycleObject("raw vegetables", "yakult", true));
+        arrayList.add(new RecycleObject("raw vegetables", "recyclable", true));
         arrayList.add(new RecycleObject("raw vegetables", "yakult"));
         arrayList.add(new RecycleObject("raw vegetables", "yakult"));
         arrayList.add(new RecycleObject("raw vegetables", "yakult"));
