@@ -46,7 +46,7 @@ public class CameraActivity extends AppCompatActivity {
         bottomNav.setOnNavigationItemSelectedListener(this::onNavigationItemSelected);
         bottomNav.setSelectedItemId(R.id.page_2);
         ivAddImage = findViewById(R.id.iv_add_image);
-        tvResult = findViewById(R.id.result);
+        //tvResult = findViewById(R.id.result);
         btLoadImage = findViewById(R.id.bt_load_image3);
         textView2 = findViewById(R.id.textView2);
         textView3 = findViewById(R.id.textView3);
@@ -75,14 +75,14 @@ public class CameraActivity extends AppCompatActivity {
             }
         });
 
-        tvResult.setOnClickListener(new View.OnClickListener() {
+        /*tvResult.setOnClickListener(new View.OnClickListener() {
 
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(Intent.ACTION_VIEW,Uri.parse("https://www.google.com/search?q=" +tvResult.getText().toString()));
                 startActivity(intent);
             }
-        });
+        });*/
     }
 
     private void onNavigationItemSelected(View view) {
@@ -111,7 +111,7 @@ public class CameraActivity extends AppCompatActivity {
             }
 
             Category output = probability.get(index);
-            tvResult.setText(output.getLabel());
+            //tvResult.setText(output.getLabel());
             System.out.println(output.getLabel());
             textView2.setVisibility(View.VISIBLE);
             textView2.setText(output.getLabel());
