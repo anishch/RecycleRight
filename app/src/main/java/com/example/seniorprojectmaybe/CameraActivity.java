@@ -34,7 +34,7 @@ public class CameraActivity extends AppCompatActivity {
 
     BottomNavigationView bottomNav;
     Button btLoadImage;
-    TextView tvResult,textView2;
+    TextView tvResult,textView2, textView3;
     ImageView ivAddImage;
     ActivityResultLauncher<String> mgetContent;
 
@@ -47,9 +47,9 @@ public class CameraActivity extends AppCompatActivity {
         bottomNav.setSelectedItemId(R.id.page_2);
         ivAddImage = findViewById(R.id.iv_add_image);
         tvResult = findViewById(R.id.result);
-        btLoadImage = findViewById(R.id.bt_load_image);
+        btLoadImage = findViewById(R.id.bt_load_image3);
         textView2 = findViewById(R.id.textView2);
-
+        textView3 = findViewById(R.id.textView3);
 
         mgetContent = registerForActivityResult(new ActivityResultContracts.GetContent(), new ActivityResultCallback<Uri>() {
             @Override
@@ -112,9 +112,10 @@ public class CameraActivity extends AppCompatActivity {
 
             Category output = probability.get(index);
             tvResult.setText(output.getLabel());
+            System.out.println(output.getLabel());
             textView2.setVisibility(View.VISIBLE);
             textView2.setText(output.getLabel());
-
+            textView3.setText(output.getLabel() + " " + output.getScore());
             // Releases model resources if no longer used.
             model.close();
         }catch (IOException e) {
