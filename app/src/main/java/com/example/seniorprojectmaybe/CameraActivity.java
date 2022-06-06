@@ -11,6 +11,7 @@ import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
+import android.text.Html;
 import android.view.Display;
 import android.view.MenuItem;
 import android.view.View;
@@ -44,7 +45,7 @@ public class CameraActivity extends AppCompatActivity {
     int whichModeltoUse = 0;
     String[] modelNames = new String[]{"Model One", "Model Two", "Model Three", "Model Four", "Model Five", "Model Six", "Model Seven", "Model 8"};
     ArrayList<String> modelsNames = new ArrayList<String>(Arrays.asList(modelNames));
-    String[] labelNames = new String[]{"Glass Bottles + Jars", "Metal Cans + Scrap Metals", "Paper + Cardboard", "Plastic Bag + Film + Styrofoam", "Plastic Bottles", "Plastic Jugs", "Plastic Tubs + Cups", "Utensils + Small Items", "Wrappers + Food Packaging"};
+    String[] labelNames = new String[]{"Glass Bottles + Jars", "Metal Cans + Scrap Metal", "Paper + Cardboard", "Plastic Bag + Film + Styrofoam", "Plastic Bottles", "Plastic Jugs", "Plastic Tubs + Cups", "Utensils + Small Items", "Wrappers + Food Packaging"};
     ArrayList<String> labelsNames = new ArrayList<String>(Arrays.asList(labelNames));
     String[] labelCategories = new String[]{"Recyclable", "Recyclable", "Recyclable", "Garbage", "Recyclable", "Recyclable", "Recyclable", "Garbage", "Garbage"};
     int[] modelRight = new int[modelNames.length];
@@ -53,7 +54,7 @@ public class CameraActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        spinnerLanguages = findViewById(R.id.spinner_languages);
+        //spinnerLanguages = findViewById(R.id.spinner_languages);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_camera);
         bottomNav = findViewById(R.id.bottom_navigation_3);
@@ -63,6 +64,7 @@ public class CameraActivity extends AppCompatActivity {
         //tvResult = findViewById(R.id.result);
         btLoadImage = findViewById(R.id.bt_load_image3);
         textView2 = findViewById(R.id.textView2);
+        textView2.setVisibility(View.INVISIBLE);
         textView3 = findViewById(R.id.textView3);
 
         mgetContent = registerForActivityResult(new ActivityResultContracts.GetContent(), new ActivityResultCallback<Uri>() {
@@ -128,8 +130,22 @@ public class CameraActivity extends AppCompatActivity {
             //tvResult.setText(output.getLabel());
             System.out.println(output.getLabel());
             textView2.setVisibility(View.VISIBLE);
-            textView2.setText(output.getLabel() + ": " + labelCategories[labelsNames.indexOf(output.getLabel())]);
-            textView3.setText(output.getLabel() + ": " + labelCategories[labelsNames.indexOf(output.getLabel())]);
+            String ultimateCategory = "";
+            try {
+                ultimateCategory = labelCategories[labelsNames.indexOf(output.getLabel())];
+            }
+            catch (Exception e){
+
+            }
+            String addOn;
+            if (ultimateCategory.equals("Recyclable")){
+                addOn = "<font color='#103474'>";
+            }
+            else{
+                addOn = "<font color='#107427'>";
+            }
+            textView2.setText(Html.fromHtml(output.getLabel() + ": "));
+            textView3.setText(Html.fromHtml(addOn + ultimateCategory + "</font>"));
             // Releases model resources if no longer used.
             model.close();
         }catch (IOException e) {
